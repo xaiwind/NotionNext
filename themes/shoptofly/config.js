@@ -24,8 +24,8 @@ const CONFIG = {
   STARTER_HERO_PREVIEW_IMAGE: '/images/shoptofly/hero/shoptofly.png', // 产品预览图 ，默认读取public目录下图片
   STARTER_HERO_BANNER_IMAGE: '', // hero区下方的全宽图
 
-  SHOPTOFLY_TOP_WORD1: '🚀 11月-双11-免费技术咨询',   //优惠框1
-  SHOPTOFLY_TOP_WORD2: '🌍 11月-300以下功能-免费修改',  //优惠框2
+  SHOPTOFLY_TOP_WORD1: '🚀 299rmb 自研高级模版预售中',   //优惠框1
+  SHOPTOFLY_TOP_WORD2: '🌍 免费咨询、在线接单、欢迎详聊',  //优惠框2
 
   // 顶部右侧导航暗流
   STARTER_NAV_BUTTON_1_TEXT: 'Sign In',
@@ -210,8 +210,8 @@ const CONFIG = {
     {
       STARTER_TEAM_ITEM_AVATAR:
         '/images/shoptofly/team/team-01.png',
-      STARTER_TEAM_ITEM_NICKNAME: '风犬',
-      STARTER_TEAM_ITEM_DESCRIPTION: '站长跨境风犬'
+      STARTER_TEAM_ITEM_NICKNAME: '想风',
+      STARTER_TEAM_ITEM_DESCRIPTION: '站长想风ToFly'
     },
     {
       STARTER_TEAM_ITEM_AVATAR: '/images/shoptofly/team/team-02.png',

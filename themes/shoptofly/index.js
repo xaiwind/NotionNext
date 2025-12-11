@@ -11,6 +11,7 @@ import { useEffect } from 'react'
 import { About } from './components/About'
 import { BackToTopButton } from './components/BackToTopButton'
 import { Blog } from './components/Blog'
+import { Project } from './components/Project'
 import { Brand } from './components/Brand'
 import { Contact } from './components/Contact'
 import { FAQ } from './components/FAQ'
@@ -263,6 +264,18 @@ const LayoutArchive = props => (
   <>
     {/* 博文列表 */}
     <Blog {...props} />
+  </>
+)
+
+/**
+ * 文章归档
+ * @param {*} props
+ * @returns
+ */
+const LayoutProject = props => (
+  <>
+    {/* 博文列表 */}
+    <Project {...props} />
   </>
 )
 
@@ -539,6 +552,7 @@ const LayoutSignUp = props => {
 export {
   Layout404,
   LayoutArchive,
+  LayoutProject,
   LayoutBase,
   LayoutCategoryIndex,
   LayoutDashboard,
