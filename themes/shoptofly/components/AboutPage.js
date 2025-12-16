@@ -2,8 +2,8 @@
 
 import SmartLink from '@/components/SmartLink'
 
-export default function AboutPage() {
-  return (
+export default function AboutPage() {  
+  return ( 
     <main className="bg-[#0b0f14] text-white">
 
       {/* ================= Hero Section ================= */}
@@ -81,11 +81,21 @@ export default function AboutPage() {
             <h2 className="mb-6 text-3xl font-bold">我的初衷</h2>
 
             <p className="text-white/80 leading-relaxed">
-              打造一个 <strong>跨境电商技术服务引擎</strong>，
+              打造一个 <strong>跨境电商技术服务引擎</strong>,
               为中小卖家提供长期可靠的技术支持与解决方案。
               <br /><br />
               我希望技术不再成为卖家的负担，
               而是一种可持续积累的商业资产。
+            </p>
+
+            <h2 className="mb-6 text-3xl font-bold pt-4">未来规划</h2>
+
+            <p className="text-white/80 leading-relaxed">
+              计划上线一款<strong>shopify主题</strong>一款<strong>会员积分插件</strong>,
+              持续发布自媒体内容希望2026-<strong>B站粉丝过千</strong>。
+              <br /><br />
+              开发更多跨境电商相关的 <strong>SaaS工具</strong>,
+              准备输出一套<strong>shopify全栈开发课程</strong>。
             </p>
           </div>
         </div>
