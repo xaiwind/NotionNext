@@ -13,7 +13,7 @@ import { useEffect } from 'react'
  */
 const ArchiveIndex = props => {
   useEffect(() => {
-     
+    console.log('ArchiveIndex useEffect scroll to anchor---1')  
     if (isBrowser) {
       const anchor = window.location.hash
       if (anchor) {
@@ -28,8 +28,8 @@ const ArchiveIndex = props => {
   }, [])
 
   const theme = siteConfig('THEME', BLOG.THEME, props.NOTION_CONFIG)
-
-  return <DynamicLayout theme={theme} layoutName='LayoutProject' {...props} />
+  console.log('----theme--2', theme)  
+  return <DynamicLayout theme={theme} layoutName='LayoutAboutPage' {...props} />
 }
 
 export async function getStaticProps({ locale }) {

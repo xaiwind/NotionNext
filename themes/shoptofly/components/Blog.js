@@ -7,7 +7,7 @@ import SmartLink from '@/components/SmartLink'
  * @param {*} param0
  * @returns
  */
-export const Blog = ({ posts }) => {
+export const  Blog = ({ posts }) => {
   return (
     <>
       {/* <!-- ====== Blog Section Start --> */}

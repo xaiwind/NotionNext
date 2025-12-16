@@ -41,6 +41,7 @@ import SearchInput from './components/SearchInput'
 import { SignInForm } from './components/SignInForm'
 import { SignUpForm } from './components/SignUpForm'
 import { SVG404 } from './components/svg/SVG404'
+import AboutPage from './components/AboutPage'
 
 /**
  * 布局框架
@@ -268,7 +269,7 @@ const LayoutArchive = props => (
 )
 
 /**
- * 文章归档
+ * 项目归档
  * @param {*} props
  * @returns
  */
@@ -276,6 +277,18 @@ const LayoutProject = props => (
   <>
     {/* 博文列表 */}
     <Project {...props} />
+  </>
+)
+
+/**
+ * 关于页
+ * @param {*} props
+ * @returns
+ */
+const LayoutAboutPage = props => (
+  <>
+    {/* 博文列表 */}
+    <AboutPage {...props} />
   </>
 )
 
@@ -553,6 +566,7 @@ export {
   Layout404,
   LayoutArchive,
   LayoutProject,
+  LayoutAboutPage,
   LayoutBase,
   LayoutCategoryIndex,
   LayoutDashboard,

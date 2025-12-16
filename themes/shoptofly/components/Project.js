@@ -9,7 +9,10 @@ import SmartLink from '@/components/SmartLink'
  */
 export const Project = ({ posts }) => {
   {
-      posts = [{title: '卡维滋进口蜂蜜品牌独立站', summary: '宝塔 lnmp wordpress elemator', publishDay: '2025-12', href: 'https://www.kavezi.com/en/', pageCoverThumbnail: '/images/shoptofly/project/1-kavezi.png'}]
+      posts = [
+        {title: '卡维滋进口蜂蜜品牌独立站', summary: '宝塔 lnmp wordpress elementor', publishDay: '2025-12', href: 'https://www.kavezi.com/en/', pageCoverThumbnail: '/images/shoptofly/project/1-kavezi.webp'},
+        {title: 'APM Monaco 国际品牌官网', summary: 'shopify plus 主题定制 数据同步', publishDay: '2021-12', href: 'https://us.apm.mc/', pageCoverThumbnail: '/images/shoptofly/project/2-apm.webp'}
+      ]
   }
   return (
     <>
@@ -24,7 +27,7 @@ export const Project = ({ posts }) => {
                   我们的案例
                 </span>
                 <h2 className='mb-4 text-3xl font-bold text-dark dark:text-white sm:text-4xl md:text-[40px] md:leading-[1.2]'>
-                   最近的项目
+                   项目展示
                 </h2>
                 <p
                   dangerouslySetInnerHTML={{
