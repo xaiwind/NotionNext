@@ -14,7 +14,7 @@ export const Project = ({ posts }) => {
       posts = [
         {title: '卡维滋进口蜂蜜品牌独立站', summary: '宝塔 lnmp wordpress elementor', publishDay: '2025-12', href: 'https://www.kavezi.com/en/', pageCoverThumbnail: '/images/shoptofly/project/1-kavezi.webp'},
         {title: 'APM Monaco 国际品牌官网', summary: 'shopify plus 主题定制 数据同步', publishDay: '2021-12', href: 'https://us.apm.mc/', pageCoverThumbnail: '/images/shoptofly/project/2-apm.webp'},
-        {title: '海外短剧广告投放管理系统', summary: 'docker go vue3  FB Pixel ads', publishDay: '2025-05', href: 'https://shoptofy.com/images/shoptofly/project/3-short.png', pageCoverThumbnail: '/images/shoptofly/project/3-short.png'}
+        {title: '海外短剧广告投放管理系统', summary: 'docker go vue3  FB Pixel ads', publishDay: '2025-06', href: 'https://shoptofly.com/images/shoptofly/project/3-short.png', pageCoverThumbnail: '/images/shoptofly/project/3-short.png'}
       ]
   }
   return (
