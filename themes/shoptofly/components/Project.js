@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { siteConfig } from '@/lib/config'
 import SmartLink from '@/components/SmartLink'
+import { Router } from 'next/router'
 
 /**
  * 客户案例 项目列表
@@ -8,10 +9,12 @@ import SmartLink from '@/components/SmartLink'
  * @returns
  */
 export const Project = ({ posts }) => {
+  console.log('router.basePath---', Router.basePath);
   {
       posts = [
         {title: '卡维滋进口蜂蜜品牌独立站', summary: '宝塔 lnmp wordpress elementor', publishDay: '2025-12', href: 'https://www.kavezi.com/en/', pageCoverThumbnail: '/images/shoptofly/project/1-kavezi.webp'},
-        {title: 'APM Monaco 国际品牌官网', summary: 'shopify plus 主题定制 数据同步', publishDay: '2021-12', href: 'https://us.apm.mc/', pageCoverThumbnail: '/images/shoptofly/project/2-apm.webp'}
+        {title: 'APM Monaco 国际品牌官网', summary: 'shopify plus 主题定制 数据同步', publishDay: '2021-12', href: 'https://us.apm.mc/', pageCoverThumbnail: '/images/shoptofly/project/2-apm.webp'},
+        {title: '海外短剧广告投放管理系统', summary: 'docker go vue3  FB Pixel ads', publishDay: '2025-05', href: 'https://shoptofy.com/images/shoptofly/project/3-short.png', pageCoverThumbnail: '/images/shoptofly/project/3-short.png'}
       ]
   }
   return (
@@ -38,7 +41,7 @@ export const Project = ({ posts }) => {
             </div>
           </div>
           {/* 博客列表 此处优先展示3片文章 */}
-          { console.log('Project posts----3', posts)  }
+          {/* { console.log('Project posts----3', posts)  } */}
           
           <div className='-mx-4 flex flex-wrap'>
             {posts?.map((item, index) => {
