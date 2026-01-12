@@ -5,6 +5,7 @@ const CONFIG = {
   // 默认只展示Logo文字，如果设置了logo图片，会在文字左侧显示图标
   STARTER_LOGO: '/images/shoptofly/logo/shopify_glyph.png', // 普通logo图片 示例：/images/starter/logo/logo.svg
   STARTER_LOGO_WHITE: '/images/shoptofly/logo/shopify_glyph_white.png', // 透明底浅色logo 示例： /images/starter/logo/logo-white.svg
+  TITLE: 'ShopToFly', // 站点标题影响英文版显示
 
   // MENU ， 菜单部分不在此处配置，请在Notion数据库中添加MENU
 

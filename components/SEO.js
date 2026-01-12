@@ -51,7 +51,9 @@ const SEO = props => {
     image = meta.image || '/bg_image.jpg'
   }
   const TITLE = siteConfig('TITLE')
-  const title = meta?.title || TITLE
+  //const title = meta?.title || TITLE
+  const title = (meta?.title || TITLE).replace(/\s*\(\d+\)/g, '') // 移除 (1) 字符
+  //console.log('SEO title', title)
   const description = meta?.description || `${siteInfo?.description}`
   const type = meta?.type || 'website'
   const lang = siteConfig('LANG').replace('-', '_') // Facebook OpenGraph 要 zh_CN 這樣的格式才抓得到語言
