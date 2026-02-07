@@ -21,15 +21,22 @@ export const Contact = () => {
                   <div>
                     <span className='mb-6 block text-base font-medium text-dark dark:text-white'>
                       {siteConfig('STARTER_CONTACT_TITLE')}
-                    </span>
-                  
+                    </span>                  
                     <h2 className='mb-8 max-w-[260px] text-[35px] font-semibold leading-[1.14] text-dark dark:text-white'>
                       {siteConfig('STARTER_CONTACT_TEXT')}
                     </h2>
+                    <p className='mb-6 block text-base font-medium text-dark dark:text-white'>
+                      <a class="mb-4 inline-block text-xl font-semibold text-dark hover:text-[#9bc459] dark:text-white dark:hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl" href="https://t.me/shoptofly" target='_blank'>
+                      Telegram {siteConfig('SHOPTOFLY_CLICK_CONTACT')}</a>
+                    </p>
+                    <p className='mb-6 block text-base font-medium text-dark dark:text-white'>
+                      <a class="mb-4 inline-block text-xl font-semibold text-dark hover:text-[#9bc459] dark:text-white dark:hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl" href="https://wa.me/8618819483656" target='_blank'>
+                      Whatsapp {siteConfig('SHOPTOFLY_CLICK_CONTACT')}</a>
+                    </p>
                   </div>
                   <div class=''>
                     <span className='mb-6 block text-base font-medium text-dark dark:text-white'>
-                    微信联系:
+                      {siteConfig('SHOPTOFLY_WECHAT_CONTACT')}
                     </span>
                     <img className='max-w-[280px] object-contain' alt='wecaht' src='/images/shoptofly/shoptofly-wechat.png'/>
                   </div>

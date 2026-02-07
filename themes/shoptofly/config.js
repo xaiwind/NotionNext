@@ -12,20 +12,20 @@ const CONFIG = {
   // 英雄区块导航
   STARTER_HERO_ENABLE: true, // 开启英雄区
   STARTER_HERO_TITLE_1: '面向跨境卖家的技术服务提供者 Shopify + WordPress  & 中台/ERP SaaS ', // 英雄区文字
-  STARTER_HERO_TITLE_2: '加入ShopToFly社区,获取更多跨境资讯、教程、技术支持', // 英雄区文字
+  STARTER_HERO_TITLE_2: '关注ShopToFly社区,获取更多跨境资讯、教程、技术支持', // 英雄区文字
   // 英雄区两个按钮，如果TEXT留空则隐藏按钮
-  STARTER_HERO_BUTTON_1_TEXT: '开始体验', // 英雄区按钮
-  STARTER_HERO_BUTTON_1_URL:
-    'https://www.shopify.com', // 英雄区按钮
-  STARTER_HERO_BUTTON_2_TEXT: '在B站上关注我', // 英雄区按钮
+  STARTER_HERO_BUTTON_1_TEXT: 'YouTube', // 英雄区按钮
+  STARTER_HERO_BUTTON_1_URL: 'https://www.youtube.com/@shoptofly23', // 英雄区按钮
+  STARTER_HERO_BUTTON_2_TEXT: 'B站Bilili  ', // 英雄区按钮
   STARTER_HERO_BUTTON_2_URL: 'https://space.bilibili.com/266933323', // 英雄区按钮
+  //STARTER_HERO_BUTTON_2_ICON: '', // 英雄区按钮2的图标，不需要则留空
   STARTER_HERO_BUTTON_2_ICON: '/images/shoptofly/Bilibili_logo.svg', // 英雄区按钮2的图标，不需要则留空
 
   // 英雄区配图，如需隐藏，改为空值即可 ''
   STARTER_HERO_PREVIEW_IMAGE: '/images/shoptofly/hero/shoptofly.png', // 产品预览图 ，默认读取public目录下图片
   STARTER_HERO_BANNER_IMAGE: '', // hero区下方的全宽图
 
-  SHOPTOFLY_TOP_WORD1: '🚀 299rmb 自研高级模版预售中',   //优惠框1
+  SHOPTOFLY_TOP_WORD1: '🚀 专注shopify主题与app开发',   //优惠框1
   SHOPTOFLY_TOP_WORD2: '🌍 免费咨询、在线接单、欢迎详聊',  //优惠框2
 
   // 顶部右侧导航暗流
@@ -50,8 +50,7 @@ const CONFIG = {
   STARTER_FEATURE_2_TITLE_1: '安全稳定，全程护航', // 特性2
   STARTER_FEATURE_2_TEXT_1: '从平台安全到支付交易，我们提供全方位保障，让您高枕无忧，远离技术风险。', // 特性2
   STARTER_FEATURE_2_BUTTON_TEXT: '了解更多', // 特性2
-  STARTER_FEATURE_2_BUTTON_URL:
-    '', // 特性2
+  STARTER_FEATURE_2_BUTTON_URL:'', // 特性2
 
   STARTER_FEATURE_3_TITLE_1: '专业支持，随叫随到', // 特性3
   STARTER_FEATURE_3_TEXT_1: '拥有专属技术支持团队，随时解决您的问题，做您最可靠的“网店IT部门”。', // 特性3
@@ -65,7 +64,7 @@ const CONFIG = {
 
   // 首页ABOUT区块
   STARTER_ABOUT_ENABLE: true, // ABOUT区块开关
-  STARTER_ABOUT_TITLE: '一套简单快捷、安全稳定的独立站启动方案',
+  STARTER_ABOUT_TITLE: '一个靠谱的跨境电商技术支持团队',
   STARTER_ABOUT_TEXT:
     'ShopToFly的愿景是让每位中小卖家都能拥有强大的技术支持，专注于产品与营销，将生意风险降至最低。功能全面的电商系统，依托可靠的基础架构，助您轻松开启品牌出海之旅。',
   STARTER_ABOUT_BUTTON_TEXT: '了解更多',
@@ -81,7 +80,7 @@ const CONFIG = {
   STARTER_PRICING_TITLE: '价格表',
   STARTER_PRICING_TEXT_1: '很棒的定价计划',
   STARTER_PRICING_TEXT_2:
-    '我们制定了灵活的付费模式，您可以按需选择。（暂时不支持线上支付，可以加我微信或者邮件联系我）',
+    '我们制定了灵活的付费模式，您可以按需选择。（暂时不支持线上支付，可以联系我支付）',
 
   STARTER_PRICING_1_TITLE: '1 对 1 技术咨询',
   STARTER_PRICING_1_PRICE: '39.98',
@@ -196,7 +195,7 @@ const CONFIG = {
 
   STARTER_FAQ_4_QUESTION: '可以怎么合作呢？如何付款？',
   STARTER_FAQ_4_ANSWER:
-    '加微信详聊、可以简单功能开发也可以项目合作，首次合作和金额超过1000rmb的订单 必须442付款，即首付4成开工，做完一半再付4成，完成9成后付全款，准备交付',
+    '联系详聊、可以简单功能开发也可以项目合作，首次合作和金额超过1000rmb的订单 必须442付款，即首付4成开工，做完一半再付4成，完成9成后付全款，准备交付',
 
 
   // 团队成员区块
@@ -238,7 +237,14 @@ const CONFIG = {
   STARTER_BLOG_TEXT_1: '最近的新闻',
   STARTER_BLOG_TEXT_2:
     '这里会发布一些关于跨境电商的最新动态，包括shopify、amazon、paypal和运营技术等',
-
+  SHOPTOFLY_PROJECT_TITLE:'我们的案例',
+  SHOPTOFLY_PROJECT_TEXT_1:'项目展示',
+  SHOPTOFLY_PROJECT_TEXT_2:'我们为众多客户提供专业的 shopify、wordpress 等技术开发服务，以下是部分客户案例',
+  SHOPTOFLY_PROJECT_ITEMS:[
+    {TITLE: '卡维滋进口蜂蜜品牌独立站', SUMMARY: '宝塔 lnmp wordpress elementor', PUBLISHDAY: '2025-12', HREF: 'https://www.kavezi.com/en/', ProjectCoverThumbnail: '/images/shoptofly/project/1-kavezi.webp'},
+    {TITLE: 'APM Monaco 国际品牌官网', SUMMARY: 'shopify plus 主题定制 数据同步', PUBLISHDAY: '2021-12', HREF: 'https://us.apm.mc/', ProjectCoverThumbnail: '/images/shoptofly/project/2-apm.webp'},
+    {TITLE: '海外短剧广告投放管理系统', SUMMARY: 'docker go vue3  FB Pixel ads', PUBLISHDAY: '2025-06', HREF: 'https://shoptofly.com/images/shoptofly/project/3-short.png', ProjectCoverThumbnail: '/images/shoptofly/project/3-short.png'}
+  ],
   // 联系模块
   STARTER_CONTACT_ENABLE: true, // 联系模块开关
   STARTER_CONTACT_TITLE: '联系我们',
@@ -246,7 +252,9 @@ const CONFIG = {
   STARTER_CONTACT_LOCATION_TITLE: '我们的位置',
   STARTER_CONTACT_LOCATION_TEXT: '中国，深圳',
   STARTER_CONTACT_EMAIL_TITLE: '我们如何帮助您？',
-  STARTER_CONTACT_EMAIL_TEXT: 'support@shoptofly.com',
+  STARTER_CONTACT_EMAIL_TEXT: 'shoptofly23@gmail.com',
+  SHOPTOFLY_CLICK_CONTACT: '点击联系',
+  SHOPTOFLY_WECHAT_CONTACT: "微信联系:搜索 shoptofly 或者扫码添加",
 
   // 嵌入外部表单
   STARTER_CONTACT_MSG_EXTERNAL_URL: 'https://noteforms.com/forms/duplicate-free-client-intake-form-y5it1p', // 基于NoteForm创建，将留言数据存在Notion中
@@ -370,11 +378,11 @@ const CONFIG = {
   STARTER_CTA_DESCRIPTION:
     '访问ShopToFly的操作文档,我们提供了详细的教程,帮助你业务即刻起飞',
   STARTER_CTA_BUTTON: true, // 是否显示按钮
-  STARTER_CTA_BUTTON_URL: 'https://www.shopify.com',
+  STARTER_CTA_BUTTON_URL: 'https://docs.shoptofly.com',
   STARTER_CTA_BUTTON_TEXT: '开始体验',
 
   STARTER_POST_REDIRECT_ENABLE: true, // 默認開啟重定向
-  STARTER_POST_REDIRECT_URL: 'https://blog.tangly1024.com', // 重定向域名
+  STARTER_POST_REDIRECT_URL: 'https://docs.shoptofly.com', // 重定向域名
   STARTER_NEWSLETTER: process.env.NEXT_PUBLIC_THEME_STARTER_NEWSLETTER || false 
   // 是否开启邮件订阅 请先配置mailchimp功能 https://docs.tangly1024.com/article/notion-next-mailchimp
 }
