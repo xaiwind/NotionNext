@@ -63,7 +63,7 @@ const CONFIG = {
   STARTER_FEATURE_4_BUTTON_URL: '', // 特性4
 
   // 首页ABOUT区块
-  STARTER_ABOUT_ENABLE: true, // ABOUT区块开关
+  STARTER_ABOUT_ENABLE: false, // ABOUT区块开关
   STARTER_ABOUT_TITLE: '一个靠谱的跨境电商技术支持团队',
   STARTER_ABOUT_TEXT:
     'ShopToFly的愿景是让每位中小卖家都能拥有强大的技术支持，专注于产品与营销，将生意风险降至最低。功能全面的电商系统，依托可靠的基础架构，助您轻松开启品牌出海之旅。',
@@ -231,7 +231,7 @@ const CONFIG = {
   ],
 
   // 博客文章区块
-  STARTER_BLOG_ENABLE: true, // 首页博文区块开关
+  STARTER_BLOG_ENABLE: false, // 首页博文区块开关
   STARTER_BLOG_TITLE: '我们的博客',
   STARTER_BLOG_COUNT: 3, // 首页博文区块默认展示前3篇文章
   STARTER_BLOG_TEXT_1: '最近的新闻',
@@ -372,7 +372,7 @@ const CONFIG = {
   STARTER_404_BACK: '回到主页',
 
   // 页面底部的行动呼吁模块
-  STARTER_CTA_ENABLE: true,
+  STARTER_CTA_ENABLE: false,
   STARTER_CTA_TITLE: '你还在等待什么呢？',
   STARTER_CTA_TITLE_2: '现在开始吧',
   STARTER_CTA_DESCRIPTION:
@@ -381,7 +381,7 @@ const CONFIG = {
   STARTER_CTA_BUTTON_URL: 'https://docs.shoptofly.com',
   STARTER_CTA_BUTTON_TEXT: '开始体验',
 
-  STARTER_POST_REDIRECT_ENABLE: true, // 默認開啟重定向
+  STARTER_POST_REDIRECT_ENABLE: false, // 默認開啟重定向
   STARTER_POST_REDIRECT_URL: 'https://docs.shoptofly.com', // 重定向域名
   STARTER_NEWSLETTER: process.env.NEXT_PUBLIC_THEME_STARTER_NEWSLETTER || false 
   // 是否开启邮件订阅 请先配置mailchimp功能 https://docs.tangly1024.com/article/notion-next-mailchimp
