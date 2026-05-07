@@ -18,13 +18,29 @@ To contribute to NotionNext, follow these steps:
 5. Commit your modifications and push the branch.
 6. [Create a PR][pr] from the branch in your fork to NotionNext' `main` branch.
 
-This project is built with [Next.js][next.js] and `yarn` as the package manager.
+## Required Workflow Rules
+
+Please follow these rules for every contribution:
+
+1. Create a dedicated branch for each task (do not commit directly to `main`).
+2. Keep PRs focused and minimal (avoid mixing unrelated refactors/config edits).
+3. Do not commit personal/local files such as `.env.local`.
+4. Do not submit personalized config defaults that can affect other contributors.
+5. Run lint/tests before opening PR.
+
+For full Chinese workflow guidance, see:
+
+- [Docs Navigation](./docs/README.md)
+- [Contribution Workflow](./docs/CONTRIBUTION_WORKFLOW.md)
+- [Configuration Rules](./docs/CONFIGURATION.md)
+
+This project is built with [Next.js][next.js] and `pnpm` as the package manager.
 Here are some commands that you can use:
 
-- `yarn`: install dependencies
-- `yarn dev`: compile and hot-reload for development
-- `yarn build`: compile and minify for production
-- `yarn start`: serve the compiled build in production mode
+- `pnpm install`: install dependencies
+- `pnpm dev`: compile and hot-reload for development
+- `pnpm build`: compile and minify for production
+- `pnpm start`: serve the compiled build in production mode
 
 ## Creating new themes
 

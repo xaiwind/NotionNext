@@ -1,8 +1,9 @@
 const { THEME } = require('./blog.config')
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 const BLOG = require('./blog.config')
 const { extractLangPrefix } = require('./lib/utils/pageId')
+const { isExport } = require('./lib/utils/buildMode')
 
 // 打包时是否分析代码
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -18,8 +19,7 @@ const locales = (function () {
   const langs = [BLOG.LANG]
   if (BLOG.NOTION_PAGE_ID.indexOf(',') > 0) {
     const siteIds = BLOG.NOTION_PAGE_ID.split(',')
-    for (let index = 0; index < siteIds.length; index++) {
-      const siteId = siteIds[index]
+    for (const siteId of siteIds) {
       const prefix = extractLangPrefix(siteId)
       // 如果包含前缀 例如 zh , en 等
       if (prefix) {
@@ -32,16 +32,28 @@ const locales = (function () {
   return langs
 })()
 
+// next dev 启动时提示：开发环境默认读/写 Notion 缓存（见 conf/dev.config.js 中 ENABLE_CACHE）
+;(function printDevCacheHint() {
+  if (process.env.npm_lifecycle_event !== 'dev') return
+  if (globalThis.__NOTIONNEXT_DEV_CACHE_HINT_PRINTED__) return
+  globalThis.__NOTIONNEXT_DEV_CACHE_HINT_PRINTED__ = true
+  console.log('\n[NotionNext] Dev cache is ON (ENABLE_CACHE=true).')
+  console.log('[NotionNext] Need realtime data? Set ENABLE_CACHE=false in .env.local\n')
+})()
+
 // 编译前执行
 // eslint-disable-next-line no-unused-vars
 const preBuild = (function () {
   if (
-    !process.env.npm_lifecycle_event === 'export' &&
-    !process.env.npm_lifecycle_event === 'build'
+    process.env.npm_lifecycle_event !== 'export' &&
+    process.env.npm_lifecycle_event !== 'build'
   ) {
     return
   }
   // 删除 public/sitemap.xml 文件 ； 否则会和/pages/sitemap.xml.js 冲突。
+  if (process.env.NEXT_PRIVATE_BUILD_WORKER) {
+    return
+  }
   const sitemapPath = path.resolve(__dirname, 'public', 'sitemap.xml')
   if (fs.existsSync(sitemapPath)) {
     fs.unlinkSync(sitemapPath)
@@ -53,6 +65,28 @@ const preBuild = (function () {
     fs.unlinkSync(sitemap2Path)
     console.log('Deleted existing sitemap.xml from root directory')
   }
+
+  const notionCacheRoot = path.resolve(__dirname, '.next', 'cache', 'notion')
+  const prefetchDir = path.join(notionCacheRoot, 'sessions')
+  const sessionFile = path.join(notionCacheRoot, 'build-session.json')
+  const sessionId = `${process.env.npm_lifecycle_event}-${Date.now()}-${process.pid}`
+
+  fs.rmSync(prefetchDir, { recursive: true, force: true })
+  fs.mkdirSync(notionCacheRoot, { recursive: true })
+  fs.writeFileSync(
+    sessionFile,
+    JSON.stringify(
+      {
+        sessionId,
+        createdAt: new Date().toISOString(),
+        lifecycle: process.env.npm_lifecycle_event,
+        pid: process.pid
+      },
+      null,
+      2
+    )
+  )
+  console.log('Prepared Notion build session', sessionId)
 })()
 
 /**
@@ -81,7 +115,7 @@ function scanSubdirectories(directory) {
  */
 
 function getOutput() {
-  if (process.env.EXPORT) return 'export'
+  if (isExport()) return 'export'
   if (process.env.NEXT_BUILD_STANDALONE === 'true') return 'standalone'
   return undefined
 }
@@ -122,16 +156,17 @@ const nextConfig = {
     // 图片尺寸优化
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // 允许next/image加载的图片 域名
-    domains: [
-      'gravatar.com',
-      'www.notion.so',
-      'avatars.githubusercontent.com',
-      'images.unsplash.com',
-      'source.unsplash.com',
-      'p1.qhimg.com',
-      'webmention.io',
-      'ko-fi.com'
+    // NotionNext 站长图源不可控（任意外链），这里放开 http/https 远程图片来源
+    // 说明：这会显著降低“域名白名单漏配导致图片不显示”的概率
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**'
+      },
+      {
+        protocol: 'http',
+        hostname: '**'
+      }
     ],
     // 图片加载器优化
     loader: 'default',
@@ -163,8 +198,7 @@ const nextConfig = {
       if (BLOG.NOTION_PAGE_ID.indexOf(',') > 0) {
         const siteIds = BLOG.NOTION_PAGE_ID.split(',')
         const langs = []
-        for (let index = 0; index < siteIds.length; index++) {
-          const siteId = siteIds[index]
+        for (const siteId of siteIds) {
           const prefix = extractLangPrefix(siteId)
           // 如果包含前缀 例如 zh , en 等
           if (prefix) {
@@ -276,52 +310,35 @@ const nextConfig = {
   webpack: (config, { dev, isServer }) => {
     // 动态主题：添加 resolve.alias 配置，将动态路径映射到实际路径
     config.resolve.alias['@'] = path.resolve(__dirname)
+    config.resolve.alias['lodash.throttle'] = path.resolve(
+      __dirname,
+      'lib/utils/throttle.js'
+    )
 
     if (!isServer) {
-      console.log('[默认主题]', path.resolve(__dirname, 'themes', THEME))
+      console.log(
+        '[ThemeResolver][webpack-default-only]',
+        JSON.stringify({
+          note: 'This is only webpack default theme alias, not final runtime theme.',
+          envTheme: process.env.NEXT_PUBLIC_THEME || null,
+          configTheme: THEME,
+          resolvedDefaultThemePath: path.resolve(__dirname, 'themes', THEME)
+        })
+      )
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        dns: false,
+        path: false
+      }
     }
     config.resolve.alias['@theme-components'] = path.resolve(
       __dirname,
       'themes',
       THEME
     )
-
-    // 性能优化配置
-    if (!dev) {
-      // 生产环境优化
-      config.optimization = {
-        ...config.optimization,
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            vendor: {
-              test: /[\\/]node_modules[\\/]/,
-              name: 'vendors',
-              chunks: 'all',
-            },
-            common: {
-              name: 'common',
-              minChunks: 2,
-              chunks: 'all',
-              enforce: true,
-            },
-          },
-        },
-      }
-    }
-
-    // Enable source maps in development mode
-    if (dev || process.env.NODE_ENV_API === 'development') {
-      // config.devtool = 'source-map'
-      config.devtool = 'eval-source-map'
-      // console.log('启动调试 nextjs.config.devtool ', config.devtool)
-    }
-
-    // 优化模块解析
-    config.resolve.modules = [
-      path.resolve(__dirname, 'node_modules'),
-      'node_modules'
-    ]
 
     return config
   }

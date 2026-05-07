@@ -15,7 +15,7 @@ const CONFIG = {
   STARTER_HERO_TITLE_2: '关注ShopToFly社区,获取更多跨境资讯、教程、技术支持', // 英雄区文字
   // 英雄区两个按钮，如果TEXT留空则隐藏按钮
   STARTER_HERO_BUTTON_1_TEXT: 'YouTube', // 英雄区按钮
-  STARTER_HERO_BUTTON_1_URL: 'https://www.youtube.com/@shoptofly23', // 英雄区按钮
+  STARTER_HERO_BUTTON_1_URL: 'https://www.youtube.com/@thinkwind1024', // 英雄区按钮
   STARTER_HERO_BUTTON_2_TEXT: 'B站Bilili  ', // 英雄区按钮
   STARTER_HERO_BUTTON_2_URL: 'https://space.bilibili.com/266933323', // 英雄区按钮
   //STARTER_HERO_BUTTON_2_ICON: '', // 英雄区按钮2的图标，不需要则留空

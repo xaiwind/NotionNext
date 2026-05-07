@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/test-results
 
 # next.js
 /.next/
@@ -21,8 +22,8 @@
 
 # debug
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
+pnpm-error.log*
 
 # local env files
 .env.local
@@ -36,7 +37,6 @@ yarn-error.log*
 
 # dev
 /data.json
-/pnpm-lock.yaml
 .idea
 .vscode
 
@@ -47,8 +47,12 @@ yarn-error.log*
 /public/rss/*
 /sitemap.xml
 
-# yarn
+# pnpm
 package-lock.json
-# yarn.lock
+# pnpm-lock.yaml is committed for reproducible installs
 
 .notion-api-lock
+.tmp/
+.perf/
+tsconfig.tsbuildinfo
+webpack-internal:/

@@ -1,0 +1,44 @@
+name: Lockfile Consistency
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  pnpm-lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.2
+
+      - name: Print pnpm version
+        run: pnpm --version
+
+      - name: Enforce pnpm-only lockfile
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json is not allowed. Please use pnpm-lock.yaml only."
+            exit 1
+          fi
+          if [ -f yarn.lock ]; then
+            echo "yarn.lock is not allowed. Please use pnpm-lock.yaml only."
+            exit 1
+          fi
+
+      - name: Install dependencies with frozen lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify pnpm-lock.yaml unchanged
+        run: git diff --exit-code pnpm-lock.yaml

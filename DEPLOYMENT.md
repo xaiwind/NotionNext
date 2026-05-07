@@ -6,6 +6,23 @@ NotionNext 支持多种部署方式，本指南将详细介绍各种部署选项
 
 ## 部署前准备
 
+### 0. 本地统一基线（推荐）
+
+为提升跨平台兼容性（Vercel / Cloudflare Pages / Netlify），本项目建议统一使用以下最简流程：
+
+```bash
+# Node 20
+nvm use || nvm install 20.20.0
+
+# pnpm
+npm i -g pnpm
+
+# 安装依赖 / 本地开发 / 构建
+pnpm install
+pnpm dev
+pnpm build
+```
+
 ### 1. 环境变量配置
 
 创建 `.env.local` 文件并配置必要的环境变量：
@@ -30,8 +47,8 @@ NEXT_PUBLIC_ANALYTICS_GOOGLE_ID=G-XXXXXXXXXX
 在部署前确保项目能够正常构建：
 
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
 ### 3. 质量检查
@@ -39,7 +56,7 @@ npm run start
 运行完整的质量检查：
 
 ```bash
-npm run quality
+pnpm quality
 ```
 
 ## Vercel 部署（推荐）
@@ -84,9 +101,9 @@ vercel --prod
 ```json
 {
   "framework": "nextjs",
-  "buildCommand": "npm run build",
+  "buildCommand": "pnpm build",
   "outputDirectory": ".next",
-  "installCommand": "npm install",
+  "installCommand": "pnpm",
   "functions": {
     "pages/api/**/*.js": {
       "maxDuration": 30
@@ -126,7 +143,7 @@ vercel --prod
    - 连接你的 GitHub 仓库
 
 2. **构建设置**
-   - Build command: `npm run build`
+   - Build command: `pnpm build`
    - Publish directory: `out`
    - 环境变量: `EXPORT=true`
 
@@ -137,7 +154,7 @@ vercel --prod
 
 ```bash
 # 构建静态文件
-npm run export
+pnpm export
 
 # 安装 Netlify CLI
 npm install -g netlify-cli
@@ -158,7 +175,7 @@ netlify deploy --prod --dir=out
 
 ```toml
 [build]
-  command = "npm run export"
+  command = "pnpm export"
   publish = "out"
 
 [build.environment]
@@ -201,7 +218,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN npm run build
+RUN pnpm build
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -278,7 +295,7 @@ docker-compose up -d
 ### 构建静态文件
 
 ```bash
-npm run export
+pnpm export
 ```
 
 ### GitHub Pages 部署
@@ -312,7 +329,7 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: npm run export
+      run: pnpm export
       env:
         NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
         
@@ -387,32 +404,32 @@ NEXT_PUBLIC_ANALYTICS_GOOGLE_ID=G-XXXXXXXXXX
 1. **构建失败**
    ```bash
    # 清理缓存
-   npm run clean
+   pnpm clean
    rm -rf node_modules package-lock.json
-   npm install
-   npm run build
+   pnpm
+   pnpm build
    ```
 
 2. **环境变量问题**
    ```bash
    # 检查环境变量
-   npm run quality
+   pnpm quality
    ```
 
 3. **内存不足**
    ```bash
    # 增加 Node.js 内存限制
-   NODE_OPTIONS="--max-old-space-size=4096" npm run build
+   NODE_OPTIONS="--max-old-space-size=4096" pnpm build
    ```
 
 ### 调试模式
 
 ```bash
 # 启用调试
-DEBUG=* npm run build
+DEBUG=* pnpm build
 
 # Next.js 调试
-NEXT_DEBUG=true npm run dev
+NEXT_DEBUG=true pnpm dev
 ```
 
 ## 安全检查清单
@@ -430,8 +447,8 @@ NEXT_DEBUG=true npm run dev
 ### 数据备份
 
 ```bash
-# 备份 Notion 数据
-npm run backup-notion
+# 备份数据（按你的脚本体系执行）
+# 例如：node scripts/backup-notion.js
 
 # 备份配置文件
 tar -czf config-backup.tar.gz .env.local blog.config.js
@@ -450,16 +467,16 @@ tar -czf config-backup.tar.gz .env.local blog.config.js
 
 ```bash
 # 检查依赖更新
-npm run check-updates
+pnpm check-updates
 
 # 更新依赖
-npm update
+pnpm update
 
 # 安全审计
-npm audit
+pnpm audit
 
 # 性能分析
-npm run analyze
+pnpm bundle-report
 ```
 
 ### 版本升级
