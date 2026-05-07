@@ -8,7 +8,7 @@ try {
   sharp = require('sharp')
 } catch (error) {
   console.error(
-    'Missing optional dependency "sharp". Run: yarn add -D sharp'
+    'Missing optional dependency "sharp". Run: pnpm add -D sharp'
   )
   process.exit(1)
 }

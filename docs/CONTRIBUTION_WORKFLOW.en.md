@@ -15,15 +15,15 @@
 ## 2. Pre-commit checks
 
 ```bash
-yarn lint
-yarn type-check
-yarn test
+pnpm lint
+pnpm type-check
+pnpm test
 ```
 
 If build-chain changed:
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ## 3. Commit format

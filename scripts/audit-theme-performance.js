@@ -127,7 +127,7 @@ function ensureDirs() {
 
 async function main() {
   if (!fs.existsSync(lighthouseBin)) {
-    throw new Error('Missing lighthouse binary. Run `yarn install` first.')
+    throw new Error('Missing lighthouse binary. Run `pnpm install` first.')
   }
   ensureDirs()
   const themes = getThemes()

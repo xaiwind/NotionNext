@@ -20,10 +20,10 @@
 
 常用命令：
 
-- `yarn`：安装依赖
-- `yarn dev`：本地开发
-- `yarn build`：生产构建
-- `yarn start`：生产模式运行
+- `pnpm install`：安装依赖
+- `pnpm dev`：本地开发
+- `pnpm build`：生产构建
+- `pnpm start`：生产模式运行
 
 ## 必须遵守的协作规则
 

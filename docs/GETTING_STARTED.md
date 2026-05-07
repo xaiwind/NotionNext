@@ -5,13 +5,13 @@
 ## 1. 环境要求
 
 - Node.js >= 20
-- Yarn（项目默认使用 Yarn）
+- pnpm（项目默认使用 pnpm）
 - Git
 
 ## 2. 初始化项目
 
 ```bash
-yarn
+pnpm install
 cp .env.example .env.local
 ```
 
@@ -22,15 +22,15 @@ cp .env.example .env.local
 然后启动：
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## 3. 推荐本地检查命令
 
 ```bash
-yarn lint
-yarn type-check
-yarn test
+pnpm lint
+pnpm type-check
+pnpm test
 ```
 
 ## 4. 你应该先读什么
@@ -45,4 +45,3 @@ yarn test
 - 优先挑选小范围问题（单文件或单模块）
 - 不要在一个 PR 混入多类改动（功能 + 依赖升级 + 个人配置）
 - 提交前确保能通过本地 lint/test
-

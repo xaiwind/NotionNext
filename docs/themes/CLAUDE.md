@@ -57,7 +57,7 @@
 
 3.  **启动**：
     ```bash
-    yarn dev
+    pnpm dev
     ```
 
 ---
@@ -527,14 +527,14 @@ readme.md
 ### 步骤 4：启动
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 生产构建：
 
 ```bash
-yarn build
-yarn start
+pnpm build
+pnpm start
 ```
 
 ### 步骤 5：手动触发贡献刷新（可选）

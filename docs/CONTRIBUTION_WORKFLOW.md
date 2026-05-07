@@ -15,15 +15,15 @@
 ## 2. 提交前检查
 
 ```bash
-yarn lint
-yarn type-check
-yarn test
+pnpm lint
+pnpm type-check
+pnpm test
 ```
 
 如果改动涉及构建链路，建议额外执行：
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ## 3. 提交规范

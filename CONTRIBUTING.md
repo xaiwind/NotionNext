@@ -34,13 +34,13 @@ For full Chinese workflow guidance, see:
 - [Contribution Workflow](./docs/CONTRIBUTION_WORKFLOW.md)
 - [Configuration Rules](./docs/CONFIGURATION.md)
 
-This project is built with [Next.js][next.js] and `yarn` as the package manager.
+This project is built with [Next.js][next.js] and `pnpm` as the package manager.
 Here are some commands that you can use:
 
-- `yarn`: install dependencies
-- `yarn dev`: compile and hot-reload for development
-- `yarn build`: compile and minify for production
-- `yarn start`: serve the compiled build in production mode
+- `pnpm install`: install dependencies
+- `pnpm dev`: compile and hot-reload for development
+- `pnpm build`: compile and minify for production
+- `pnpm start`: serve the compiled build in production mode
 
 ## Creating new themes
 

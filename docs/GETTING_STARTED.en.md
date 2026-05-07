@@ -5,13 +5,13 @@
 ## 1. Requirements
 
 - Node.js >= 20
-- Yarn (default package manager in this repo)
+- pnpm (default package manager in this repo)
 - Git
 
 ## 2. Initialize the project
 
 ```bash
-yarn
+pnpm install
 cp .env.example .env.local
 ```
 
@@ -22,15 +22,15 @@ At minimum, set this in `.env.local`:
 Then start dev server:
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ## 3. Recommended local checks
 
 ```bash
-yarn lint
-yarn type-check
-yarn test
+pnpm lint
+pnpm type-check
+pnpm test
 ```
 
 ## 4. Read these first
@@ -45,4 +45,3 @@ yarn test
 - Start with small scoped fixes (single file/module).
 - Do not mix multiple change types in one PR.
 - Ensure lint/test pass before opening PR.
-

@@ -70,7 +70,7 @@ function readRuntimeMetrics() {
     lcpMs: null,
     inpMs: null,
     cls: null,
-    note: 'Run `yarn perf:lighthouse` first to populate runtime metrics.'
+    note: 'Run `pnpm perf:lighthouse` first to populate runtime metrics.'
   }
   const lhciDir = path.join(rootDir, '.lighthouseci')
   if (!fs.existsSync(lhciDir)) return summary
@@ -122,7 +122,7 @@ async function main() {
       firstCompileMs: null,
       hmrMs: null,
       note:
-        'Use local terminal timing for `yarn dev` + first page compile/HMR and fill into this report when needed.'
+        'Use local terminal timing for `pnpm dev` + first page compile/HMR and fill into this report when needed.'
     },
     build: {
       durationMs: null,
@@ -136,7 +136,7 @@ async function main() {
 
   if (runBuild) {
     const start = Date.now()
-    await run('yarn', ['build'])
+    await run('pnpm', ['build'])
     result.build.durationMs = Date.now() - start
     Object.assign(result.build, getBuildArtifactStats())
   }

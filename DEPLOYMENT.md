@@ -14,13 +14,13 @@ NotionNext 支持多种部署方式，本指南将详细介绍各种部署选项
 # Node 20
 nvm use || nvm install 20.20.0
 
-# Yarn
-npm i -g yarn
+# pnpm
+npm i -g pnpm
 
 # 安装依赖 / 本地开发 / 构建
-yarn
-yarn dev
-yarn build
+pnpm install
+pnpm dev
+pnpm build
 ```
 
 ### 1. 环境变量配置
@@ -47,8 +47,8 @@ NEXT_PUBLIC_ANALYTICS_GOOGLE_ID=G-XXXXXXXXXX
 在部署前确保项目能够正常构建：
 
 ```bash
-yarn build
-yarn start
+pnpm build
+pnpm start
 ```
 
 ### 3. 质量检查
@@ -56,7 +56,7 @@ yarn start
 运行完整的质量检查：
 
 ```bash
-yarn quality
+pnpm quality
 ```
 
 ## Vercel 部署（推荐）
@@ -101,9 +101,9 @@ vercel --prod
 ```json
 {
   "framework": "nextjs",
-  "buildCommand": "yarn build",
+  "buildCommand": "pnpm build",
   "outputDirectory": ".next",
-  "installCommand": "yarn",
+  "installCommand": "pnpm",
   "functions": {
     "pages/api/**/*.js": {
       "maxDuration": 30
@@ -143,7 +143,7 @@ vercel --prod
    - 连接你的 GitHub 仓库
 
 2. **构建设置**
-   - Build command: `yarn build`
+   - Build command: `pnpm build`
    - Publish directory: `out`
    - 环境变量: `EXPORT=true`
 
@@ -154,7 +154,7 @@ vercel --prod
 
 ```bash
 # 构建静态文件
-yarn export
+pnpm export
 
 # 安装 Netlify CLI
 npm install -g netlify-cli
@@ -175,7 +175,7 @@ netlify deploy --prod --dir=out
 
 ```toml
 [build]
-  command = "yarn export"
+  command = "pnpm export"
   publish = "out"
 
 [build.environment]
@@ -218,7 +218,7 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+RUN pnpm build
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -295,7 +295,7 @@ docker-compose up -d
 ### 构建静态文件
 
 ```bash
-yarn export
+pnpm export
 ```
 
 ### GitHub Pages 部署
@@ -329,7 +329,7 @@ jobs:
       run: npm ci
       
     - name: Build
-      run: yarn export
+      run: pnpm export
       env:
         NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
         
@@ -404,32 +404,32 @@ NEXT_PUBLIC_ANALYTICS_GOOGLE_ID=G-XXXXXXXXXX
 1. **构建失败**
    ```bash
    # 清理缓存
-   yarn clean
+   pnpm clean
    rm -rf node_modules package-lock.json
-   yarn
-   yarn build
+   pnpm
+   pnpm build
    ```
 
 2. **环境变量问题**
    ```bash
    # 检查环境变量
-   yarn quality
+   pnpm quality
    ```
 
 3. **内存不足**
    ```bash
    # 增加 Node.js 内存限制
-   NODE_OPTIONS="--max-old-space-size=4096" yarn build
+   NODE_OPTIONS="--max-old-space-size=4096" pnpm build
    ```
 
 ### 调试模式
 
 ```bash
 # 启用调试
-DEBUG=* yarn build
+DEBUG=* pnpm build
 
 # Next.js 调试
-NEXT_DEBUG=true yarn dev
+NEXT_DEBUG=true pnpm dev
 ```
 
 ## 安全检查清单
@@ -467,16 +467,16 @@ tar -czf config-backup.tar.gz .env.local blog.config.js
 
 ```bash
 # 检查依赖更新
-yarn check-updates
+pnpm check-updates
 
 # 更新依赖
-yarn upgrade
+pnpm update
 
 # 安全审计
-yarn audit
+pnpm audit
 
 # 性能分析
-yarn bundle-report
+pnpm bundle-report
 ```
 
 ### 版本升级

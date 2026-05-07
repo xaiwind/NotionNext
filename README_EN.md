@@ -41,21 +41,21 @@ A static blog system built with NextJS and Notion API, deployed on Vercel. Desig
 # 1) Use Node 20 (nvm recommended)
 nvm use || nvm install 20.20.0
 
-# 2) Install Yarn if needed
-npm i -g yarn
+# 2) Install pnpm if needed
+npm i -g pnpm
 
 # 3) Install dependencies and start dev server
-yarn
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 Common commands:
 
-- Local development: `yarn dev`
-- Production build: `yarn build`
-- Static export: `yarn export`
+- Local development: `pnpm dev`
+- Production build: `pnpm build`
+- Static export: `pnpm export`
 
-Note: local workflow stays simple (`yarn`), while lockfile consistency is enforced in CI.
+Note: local workflow stays simple (`pnpm install`), while lockfile consistency is enforced in CI.
 
 ## Developer Docs Navigation
 

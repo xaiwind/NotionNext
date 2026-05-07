@@ -33,7 +33,7 @@ This theme combines the clean reading experience of **Claude Docs** with the ric
 
 3.  **Launch**:
     ```bash
-    yarn dev
+    pnpm dev
     ```
     Your blog is now running with the Claude theme.
 
@@ -284,8 +284,8 @@ Terminal login time and tty are stored in module-level variables outside React l
 *   `pages/api/claude/`: API endpoints for cache revalidation
 
 ### Commands
-*   `yarn dev`: Run locally
-*   `yarn build`: Production build (triggers contribution sync)
+*   `pnpm dev`: Run locally
+*   `pnpm build`: Production build (triggers contribution sync)
 
 ---
 
